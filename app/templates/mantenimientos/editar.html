@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Mantenimiento{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="row m-5">
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+
+            <div class="card-body">
+                <div class="d-flex justify-content-center">
+                    <h3>Editar Mantenimiento</h3>
+                </div>
+                
+
+                <form action="" method="post">
+
+                    {% csrf_token %}
+                    
+                    {{ form.tipo_mantenimiento | as_crispy_field }}
+                    <br>
+                    {{ form.observaciones | as_crispy_field }}
+                    <br>
+                    {{ form.equipo | as_crispy_field }}
+                    <br>
+                    {{ form.tecnico | as_crispy_field }}
+                    <br>
+        
+                    <div class="d-flex justify-content-end m-2">
+        
+                        <a href="{% url 'listar_mantenimientos' %}" class="btn btn-secondary m-1">Cancelar</a>
+                        <input type="submit" value="Editar" class="btn btn-success m-1">
+        
+                    </div>
+        
+                </form>
+
+                {{ mensaje }}
+
+            </div>
+        
+        </div> 
+
+    </div>
+</div>
+
+
+{% endblock %}

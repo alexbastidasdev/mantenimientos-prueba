@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar Técnico{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="row m-5">
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+
+            <div class="card-body">
+                <div class="d-flex justify-content-center">
+                    <h3>Agregar Técnico</h3>
+                </div>
+                
+
+                <form action="" method="post">
+
+                    {% csrf_token %}
+
+                    {{ form.nombre | as_crispy_field }}
+                    <br>
+                    {{ form.apellidos | as_crispy_field }}
+                    <br>
+                    {{ form.cedula | as_crispy_field }}
+                    <br>
+                    {{ form.telefono | as_crispy_field }}
+                    <br>
+                    {{ form.empresa | as_crispy_field }}
+                    <br>
+        
+                    <div class="d-flex justify-content-end m-2">
+
+                        <input type="reset" value="Limpiar" class="btn btn-outline-secondary m-1">
+                        <a href="{% url 'listar_tecnicos' %}" class="btn btn-secondary m-1">Cancelar</a>
+                        <input type="submit" value="Guardar" class="btn btn-success m-1">
+        
+                    </div>
+        
+                </form>
+
+
+            </div>
+        
+        </div> 
+
+    </div>
+</div>
+
+
+{% endblock %}
